@@ -4,7 +4,7 @@ import ColorContext from "../contexts/ColorContext";
 
 // functional component
 const Button = () => {
-    const language = useContext(LanguageContext);
+    const { language } = useContext(LanguageContext);
     const color = useContext(ColorContext);
 
     const renderSubmit = (value) => {
@@ -23,15 +23,15 @@ const Button = () => {
 // class based component:
 
 // class Button extends React.Component {
-//     renderSubmit(value) {
-//         return value === "english" ? "Submit" : "Voorleggen";
+//     renderSubmit(language) {
+//         return language === "english" ? "Submit" : "Voorleggen";
 //     }
 
 //     renderButton(color) {
 //         return (
 //             <button className={`ui button ${color}`}>
 //                 <LanguageContext.Consumer>
-//                     {(value) => this.renderSubmit(value)}
+//                     {({language}) => this.renderSubmit(language)}
 //                 </LanguageContext.Consumer>
 //             </button>
 //         );
